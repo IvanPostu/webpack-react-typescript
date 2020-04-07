@@ -1,4 +1,10 @@
 {
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescriptreact",
+    "typescript",
+  ],
   "path-intellisense.mappings": {
     "@": "${workspaceRoot}/src"
   },
