@@ -23,6 +23,7 @@ module.exports = (env, opt) => {
       filename: isProd ? '[name].[contenthash].js' : '[name].[hash].js',
       path: PATH_TO_BUILD_FOLDER
     },
+    devtool: isDev ? 'source-map' : '',
     resolve: {
       extensions: ['.js', '.ts'],
       alias: {

@@ -1,12 +1,5 @@
-import * as zz from '@/main/q.ts'
-
-class People {
-
-  static classname = 'People'
-
-}
+import { rect5 } from '@/typescript-basic/2_interfaces'
 
 
-console.log(People.classname)
 
-zz.test2('zaadfad')
+console.log(rect5.getArea())
