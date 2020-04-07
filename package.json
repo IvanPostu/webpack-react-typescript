@@ -1,0 +1,38 @@
+{
+  "name": "webpack-react-typescript",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "private": true,
+  "browserslist": "> 0.25%, not dead",
+  "scripts": {
+    "build": "cross-env NODE_ENV=production webpack  --mode production",
+    "dev": "cross-env NODE_ENV=development webpack  --mode development"
+  },
+  "keywords": [
+    "webpack",
+    "react",
+    "typescript",
+    "react-typescript"
+  ],
+  "author": "IvanPostu",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.9.0",
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "@babel/polyfill": "^7.8.7",
+    "@babel/preset-env": "^7.9.0",
+    "@babel/preset-react": "^7.9.4",
+    "@babel/preset-typescript": "^7.9.0",
+    "babel-eslint": "^10.1.0",
+    "babel-loader": "^8.1.0",
+    "clean-webpack-plugin": "^3.0.0",
+    "copy-webpack-plugin": "^5.1.1",
+    "cross-env": "^7.0.2",
+    "file-loader": "^6.0.0",
+    "html-webpack-plugin": "^4.0.4",
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.10.3"
+  }
+}

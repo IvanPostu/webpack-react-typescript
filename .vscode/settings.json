@@ -1,0 +1,62 @@
+{
+  "path-intellisense.mappings": {
+    "@": "${workspaceRoot}/src"
+  },
+  "files.exclude": {
+    "**/.git/objects/**": true,
+    "**/.git/subtree-cache/**": true,
+    "**/node_modules/*/**": true
+  },
+  "files.watcherExclude": {
+    "**/.git/objects/**": true,
+    "**/.git/subtree-cache/**": true,
+    "**/node_modules/*/**": true
+  },
+  "editor.formatOnSave": true,
+  "breadcrumbs.enabled": true,
+  "debug.toolBarLocation": "floating",
+  "editor.codeLens": false,
+  "editor.cursorBlinking": "smooth",
+  "editor.cursorStyle": "line",
+  "editor.fontSize": 13,
+  "editor.fontFamily": "Fira Code Medium",
+  "editor.fontLigatures": true,
+  "editor.formatOnPaste": true,
+  "editor.formatOnType": false,
+  "editor.letterSpacing": 0.2,
+  "editor.lineHeight": 16,
+  "editor.minimap.enabled": false,
+  "editor.tabSize": 2,
+  "editor.detectIndentation": false,
+  "editor.insertSpaces": true,
+  "search.showLineNumbers": true,
+  "workbench.colorCustomizations": {
+    "editorWarning.foreground": "#ff9100",
+    "editorError.foreground": "#ff0000",
+    "editorError.border": "#b80000"
+  },
+  "zenMode.centerLayout": false,
+  "zenMode.hideLineNumbers": false,
+  "editor.tokenColorCustomizations": {
+    "textMateRules": [
+      {
+        "scope": "comment",
+        "settings": {
+          "foreground": "#416863",
+        }
+      },
+      {
+        "scope": "string.quoted.single",
+        "settings": {
+          "foreground": "#229977",
+        }
+      },
+      {
+        "scope": "string.quoted.double",
+        "settings": {
+          "foreground": "#229977",
+        }
+      },
+    ]
+  },
+}
