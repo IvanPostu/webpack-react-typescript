@@ -24,7 +24,7 @@ module.exports = (env, opt) => {
 
 
     entry: {
-      main: ['@babel/polyfill', './main/index.ts']
+      main: ['@babel/polyfill', './main/index.js']
     },
 
 
@@ -84,7 +84,8 @@ module.exports = (env, opt) => {
             loader: 'babel-loader',
             options: {
               presets: [
-                '@babel/preset-env'
+                '@babel/preset-env',
+                '@babel/preset-react'
               ],
               plugins: [
                 '@babel/plugin-proposal-class-properties'
@@ -101,6 +102,7 @@ module.exports = (env, opt) => {
             options: {
               presets: [
                 '@babel/preset-env',
+                '@babel/preset-react',
                 '@babel/preset-typescript'
               ],
               plugins: [
@@ -108,6 +110,23 @@ module.exports = (env, opt) => {
               ]
             }
           }, 'ts-loader']
+        },
+        {
+          test: /\.tsx?$/,
+          exclude: /node_modules/,
+          use: [{
+            loader: 'babel-loader',
+            options: {
+              presets: [
+                '@babel/preset-env',
+                '@babel/preset-react'
+              ],
+              plugins: [
+                '@babel/plugin-proposal-class-properties'
+              ]
+            }
+          },
+            'ts-loader']
         },
         {
           test: /\.(sa|sc|c)ss$/,
