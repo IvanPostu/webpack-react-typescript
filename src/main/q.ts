@@ -1,3 +1,5 @@
+// import { test } from '@/typescript-features/1_generic'
+
 export function test1(): void {
   const num: Number = 33
 

@@ -4,6 +4,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const OptimizeCssAssetWebpackPlugin = require('optimize-css-assets-webpack-plugin')
 const TerserWebpackPlugin = require('terser-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 const isDev = process.env.NODE_ENV === 'development'
 const isProd = process.env.NODE_ENV === 'production'
@@ -23,7 +24,7 @@ module.exports = (env, opt) => {
 
 
     entry: {
-      main: ['@babel/polyfill', './main/index.js']
+      main: ['@babel/polyfill', './main/index.ts']
     },
 
 
@@ -51,6 +52,9 @@ module.exports = (env, opt) => {
           to: PATH_TO_BUILD_FOLDER
         }
       ]),
+      new MiniCssExtractPlugin({
+        filename: 'static/css/[hash].css',
+      })
     ],
 
     devServer: isDev ? {
@@ -104,6 +108,16 @@ module.exports = (env, opt) => {
               ]
             }
           }, 'ts-loader']
+        },
+        {
+          test: /\.(sa|sc|c)ss$/,
+          exclude: /node_modules/,
+          use: [
+            MiniCssExtractPlugin.loader,
+            'css-loader',
+            'postcss-loader',
+            'sass-loader'
+          ],
         },
       ]
     }
