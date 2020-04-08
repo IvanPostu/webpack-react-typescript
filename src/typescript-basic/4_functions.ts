@@ -19,7 +19,7 @@ function position(): MyPosition
 function position(a: number): MyPositionWithDefault
 function position(a: number, b: number): MyPosition
 
-function position(a?: number, b?: number) {
+function position(a?: number, b?: number): MyPositionWithDefault | MyPosition {
   if (!a && !b) {
     return { x: undefined, y: undefined }
   }
