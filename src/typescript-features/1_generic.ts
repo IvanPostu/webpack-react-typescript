@@ -53,12 +53,64 @@ const person = {
 //console.log(getObjectValue(person, 'age')) //99
 
 
+//===============================================================
 
-function aaa(str: string): void {
-  console.log(str)
+class Collection<T extends number | string | boolean> {
+
+  private _items: T[]
+
+  constructor(items: T[]) {
+    this._items = items
+  }
+
+  add(item: T) {
+    this._items.push(item)
+  }
+
+  get items(): T[] {
+    return this._items
+  }
+
+  remove(item: T) { //not work for object type
+    this._items = this._items.filter(i => i !== item)
+  }
+
 }
 
+const strings = new Collection<string>(['hello', 'my', 'friend'])
+const numbers = new Collection<number>([1, 2, 3, 33])
 
-export function test(): void {
-  aaa('2222')
+//===============================================================
+
+interface Car {
+  model: string
+  year: number
 }
+
+function createAndValidate(model: string, year: number): Car {
+  const car: Partial<Car> = {}
+
+  if (model.length > 3) {
+    car.model = model
+  }
+
+  if (year > 2000) {
+    car.year = year
+  }
+
+  return car as Car
+}
+
+//===============================================================
+
+const cars: Readonly<Array<string>> = ['Ford', 'Audi']
+// cars.push('Lada') //error
+
+const ford: Readonly<Car> = {
+  model: 'Ford',
+  year: 2000
+}
+
+// ford.model = 'Ferrari' //error
+
+//===============================================================

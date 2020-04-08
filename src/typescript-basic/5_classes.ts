@@ -20,7 +20,7 @@ class Typescript {
 //   }
 // }
 
-class Car {
+class Car1 {
   readonly numberOfWheels: number = 4
   constructor(readonly model: string) { }
 }
@@ -44,12 +44,12 @@ class Cat extends Animal {
 
 //=====================================
 
-abstract class Component {
+abstract class Component1 {
   abstract render(): void
   abstract info(): string
 }
 
-class ApComponent extends Component {
+class ApComponent extends Component1 {
   render(): void {
 
   }
