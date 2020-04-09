@@ -5,6 +5,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin')
 const OptimizeCssAssetWebpackPlugin = require('optimize-css-assets-webpack-plugin')
 const TerserWebpackPlugin = require('terser-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const { SourceMapDevToolPlugin } = require('webpack')
 
 const isDev = process.env.NODE_ENV === 'development'
 const isProd = process.env.NODE_ENV === 'production'
@@ -24,18 +25,21 @@ module.exports = (env, opt) => {
 
 
     entry: {
-      main: ['@babel/polyfill', './main/index.js']
+      main:['@babel/polyfill', './main/index.js']
     },
 
 
     output: {
-      filename: isProd ? '[name].[contenthash].js' : '[name].[hash].js',
+      filename: isProd ? '[name]_[contenthash].js' : '[name]_[hash].dev.js',
       path: PATH_TO_BUILD_FOLDER,
-      publicPath: '/'
+      publicPath: '/',
+      chunkFilename: isProd ? '[name]_[contenthash].bundle.js' : '[name]_[hash]_bundle.dev.js',
     },
-    devtool: isDev ? 'source-map' : '',
+    
+    devtool: false,
+
     resolve: {
-      extensions: ['.js', '.ts'],
+      extensions: ['.js', '.ts', '.jsx', '.tsx'],
       alias: {
         '@': path.resolve(__dirname, 'src'),
       }
@@ -54,11 +58,19 @@ module.exports = (env, opt) => {
       ]),
       new MiniCssExtractPlugin({
         filename: 'static/css/[hash].css',
-      })
+      }),
+      ...(isDev ? [
+        new SourceMapDevToolPlugin({
+          filename: '[file].map',
+          exclude: ['vendor','polyfill'],
+          columns: false,
+          module: true,
+        })
+      ] : []),
     ],
 
     devServer: isDev ? {
-      contentBase: path.resolve(__dirname, 'frontend', 'dist'),
+      contentBase: path.resolve(__dirname, 'devserver', 'build'),
       useLocalIp: useLocalNetwork,
       host: '127.0.0.1',
       port: 8000,
@@ -67,7 +79,13 @@ module.exports = (env, opt) => {
 
     optimization: {
       splitChunks: {
-        chunks: 'all'
+        cacheGroups: {
+          commons: {
+            test: /[\\/]node_modules[\\/]/,
+            name: 'vendors',
+            chunks: 'all'
+          }
+        }
       },
       minimizer: isProd ? [
         new OptimizeCssAssetWebpackPlugin(),
@@ -79,7 +97,7 @@ module.exports = (env, opt) => {
       rules: [
         {
           test: /\.js$/,
-          exclude: /node_modules/,
+          exclude: /(node_modules|bower_components|vendor)/,
           use: [{
             loader: 'babel-loader',
             options: {
@@ -96,7 +114,7 @@ module.exports = (env, opt) => {
         },
         {
           test: /\.ts$/,
-          exclude: /node_modules/,
+          exclude: /(node_modules|bower_components|vendor)/,
           use: [{
             loader: 'babel-loader',
             options: {
@@ -113,7 +131,7 @@ module.exports = (env, opt) => {
         },
         {
           test: /\.tsx?$/,
-          exclude: /node_modules/,
+          exclude: /(node_modules|bower_components|vendor)/,
           use: [{
             loader: 'babel-loader',
             options: {
@@ -130,7 +148,7 @@ module.exports = (env, opt) => {
         },
         {
           test: /\.(sa|sc|c)ss$/,
-          exclude: /node_modules/,
+          exclude: /(node_modules|bower_components|vendor)/,
           use: [
             MiniCssExtractPlugin.loader,
             'css-loader',

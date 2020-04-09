@@ -1,25 +1,42 @@
 body {
-  background: rgb(30, 22, 66);
-  color: white;
+  background: rgb(235, 235, 235);
 }
 
-$colorr: red;
+.px-1 {
+  padding: 0 1rem 0 1rem;
+}
 
-.q1 {
-  box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
-  user-select: none;
-  position: relative;
+
+.mt-1 {
+  margin-top: 1rem;
+}
+
+.mt-2 {
+  margin-top: 2rem;
+}
+
+.mb-1 {
+  margin-bottom: 1rem;
+}
+
+.mb-2 {
+  margin-bottom: 2rem;
+}
+
+.todo.completed span {
+  text-decoration: line-through;
+}
+
+.todo label {
+  width: 100%;
   display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  padding: 1rem;
+  background: #f3f3f3;
 }
 
-.q2 {
-  color: $colorr;
-}
-
-.q3 {
-  color: $colorr;
-}
-
-.q4 {
-  background: green;
+.to i{
+  z-index: 2;
 }

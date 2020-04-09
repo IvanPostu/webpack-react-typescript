@@ -6,7 +6,7 @@
     "**/.git/objects/**": true,
     "**/.git/subtree-cache/**": true,
     "**/node_modules/*/**": true,
-    "**/build/*/**": true
+    // "**/build/*/**": true
   },
   "files.watcherExclude": {
     "**/.git/objects/**": true,
@@ -14,7 +14,7 @@
     "**/node_modules/*/**": true,
     "**/build/*/**": true
   },
-  "editor.formatOnSave": true,
+  // "editor.formatOnSave": true,
   "breadcrumbs.enabled": true,
   "debug.toolBarLocation": "floating",
   "editor.codeLens": false,
@@ -61,4 +61,28 @@
       },
     ]
   },
+  "bracketPairColorizer.colorMode": "Independent",
+  "bracketPairColorizer.independentPairColors": [
+    [
+      "()",
+      [
+        "#c5cae9"
+      ],
+      "Red" // use when right bracket is missing
+    ],
+    [
+      "[]",
+      [
+        "#448aff"
+      ],
+      "Red"
+    ],
+    [
+      "{}",
+      [
+        "#90caf9"
+      ],
+      "Red"
+    ]
+  ]
 }
