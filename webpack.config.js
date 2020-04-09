@@ -25,7 +25,7 @@ module.exports = (env, opt) => {
 
 
     entry: {
-      main:['@babel/polyfill', './main/index.js']
+      main: ['@babel/polyfill', './main/index.js']
     },
 
 
@@ -35,7 +35,7 @@ module.exports = (env, opt) => {
       publicPath: '/',
       chunkFilename: isProd ? '[name]_[contenthash].bundle.js' : '[name]_[hash]_bundle.dev.js',
     },
-    
+
     devtool: false,
 
     resolve: {
@@ -62,7 +62,7 @@ module.exports = (env, opt) => {
       ...(isDev ? [
         new SourceMapDevToolPlugin({
           filename: '[file].map',
-          exclude: ['vendor','polyfill'],
+          exclude: ['vendor', 'polyfill'],
           columns: false,
           module: true,
         })
@@ -100,15 +100,6 @@ module.exports = (env, opt) => {
           exclude: /(node_modules|bower_components|vendor)/,
           use: [{
             loader: 'babel-loader',
-            options: {
-              presets: [
-                '@babel/preset-env',
-                '@babel/preset-react'
-              ],
-              plugins: [
-                '@babel/plugin-proposal-class-properties'
-              ]
-            }
           },
             'eslint-loader']
         },
@@ -117,16 +108,6 @@ module.exports = (env, opt) => {
           exclude: /(node_modules|bower_components|vendor)/,
           use: [{
             loader: 'babel-loader',
-            options: {
-              presets: [
-                '@babel/preset-env',
-                '@babel/preset-react',
-                '@babel/preset-typescript'
-              ],
-              plugins: [
-                '@babel/plugin-proposal-class-properties'
-              ]
-            }
           }, 'ts-loader']
         },
         {
@@ -134,15 +115,6 @@ module.exports = (env, opt) => {
           exclude: /(node_modules|bower_components|vendor)/,
           use: [{
             loader: 'babel-loader',
-            options: {
-              presets: [
-                '@babel/preset-env',
-                '@babel/preset-react'
-              ],
-              plugins: [
-                '@babel/plugin-proposal-class-properties'
-              ]
-            }
           },
             'ts-loader']
         },
