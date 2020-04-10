@@ -1,3 +1,3 @@
 export default function nullFactory() {
-  return null
+  return null;
 }

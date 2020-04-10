@@ -1,15 +1,14 @@
 class Typescript {
-  version: string
+  version: string;
 
   constructor(version: string) {
-    this.version = version
+    this.version = version;
   }
 
   info(name: string) {
-    return `${name} adjf lkadjklfj ldkaf  ${this.version}`
+    return `${name} adjf lkadjklfj ldkaf  ${this.version}`;
   }
 }
-
 
 // class Car {
 //   readonly model : string
@@ -21,48 +20,40 @@ class Typescript {
 // }
 
 class Car1 {
-  readonly numberOfWheels: number = 4
-  constructor(readonly model: string) { }
+  readonly numberOfWheels: number = 4;
+  constructor(readonly model: string) {}
 }
 
 //=====================================
 
 class Animal {
-  protected voice: string = ''
-  public color: string = 'red'
+  protected voice = '';
+  public color = 'red';
 
   private makeSound(): string {
-    return 'go'
+    return 'go';
   }
 }
 
 class Cat extends Animal {
   public setVoice(voice: string): void {
-    this.voice = voice
+    this.voice = voice;
   }
 }
 
 //=====================================
 
 abstract class Component1 {
-  abstract render(): void
-  abstract info(): string
+  abstract render(): void;
+  abstract info(): string;
 }
 
 class ApComponent extends Component1 {
   render(): void {
-
+    console.log(1);
   }
 
   info() {
-    return 'info'
+    return 'info';
   }
 }
-
-
-
-
-
-
-
-

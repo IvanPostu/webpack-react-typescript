@@ -1,9 +1,9 @@
-import React, { Fragment } from 'react'
+import React, { Fragment } from 'react';
 
 export const TodoListEmpty = () => {
   return (
     <Fragment>
-      <p className='center'>Todo list is empty !!!!</p>
+      <p className="center">Todo list is empty !!!!</p>
     </Fragment>
-  )
-}
+  );
+};

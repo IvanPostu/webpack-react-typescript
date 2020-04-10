@@ -1,5 +1,5 @@
-export default interface ITodo {
-  title: string
-  id: number
-  completed: boolean
+export default interface TodoInterface {
+  title: string;
+  id: number;
+  completed: boolean;
 }
