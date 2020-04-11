@@ -5,12 +5,15 @@ const Navbar: React.FunctionComponent = () => {
   return (
     <nav>
       <div className="nav-wrapper px-1 blue accent-1">
-        <a href="#" className="brand-logo">
+        <NavLink to="/" className="brand-logo">
           React + Typescript
-        </a>
+        </NavLink>
         <ul id="nav-mobile" className="right hide-on-med-and-down">
           <li>
             <NavLink to="/">Home</NavLink>
+          </li>
+          <li>
+            <NavLink to="/posts">Posts</NavLink>
           </li>
           <li>
             <NavLink to="/about">About</NavLink>

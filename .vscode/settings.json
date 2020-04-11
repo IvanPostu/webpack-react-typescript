@@ -1,4 +1,7 @@
 {
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true  
+  },
   "path-intellisense.mappings": {
     "@": "${workspaceRoot}/src"
   },
@@ -24,7 +27,7 @@
   "editor.fontSize": 13,
   "editor.fontFamily": "Fira Code Medium",
   "editor.fontLigatures": true,
-  "editor.formatOnPaste": true,
+  "editor.formatOnPaste": false,
   "editor.formatOnType": false,
   "editor.letterSpacing": 0.2,
   "editor.lineHeight": 16,

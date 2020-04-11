@@ -1,7 +1,7 @@
 import React, { Fragment, useState, useEffect } from 'react';
-import TodoForm from '@/typescript-react/components/TodoForm.tsx';
-import TodoList from '@/typescript-react/components/TodoList';
-import ITodo from '@/typescript-react/interfaces/ITodo';
+import TodoForm from '@/typescript-react/components/todo/TodoForm';
+import TodoList from '@/typescript-react/components/todo/TodoList';
+import ITodo from '@/typescript-react/interfaces/TodoInterface';
 
 const TodosPage: React.FunctionComponent = (): React.ReactElement => {
   const [todos, setTodos] = useState<Array<ITodo>>([]);

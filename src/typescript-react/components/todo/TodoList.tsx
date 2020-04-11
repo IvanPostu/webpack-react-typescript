@@ -1,5 +1,5 @@
 import React from 'react';
-import ITodo from '../interfaces/ITodo';
+import ITodo from '../../interfaces/TodoInterface';
 import { TodoListEmpty } from './TodoListEmpty';
 
 type TodoListProps = {
